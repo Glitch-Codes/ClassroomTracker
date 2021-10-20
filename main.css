@@ -1,0 +1,69 @@
+body, textarea, button {
+  font-family: "Cousine", "Courier New", "Mono";
+  font-size: 12pt;
+}
+
+body {
+  background-color: black;
+  text-align: center;
+}
+
+video {
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transform: rotateY(180deg);
+  z-index: 1;
+}
+
+svg {
+  height: 480px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 480px;
+  z-index: 2;
+}
+
+#scanlog {
+  color: rgb(4, 0, 255);
+  font-size: 8pt;
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  width: 98%;
+  z-index: 3;
+}
+
+canvas {
+  height: 480px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 480px;
+  z-index: 998;
+}
+
+#info {
+  position: top;
+  top: 40%;
+  width: 98%;
+  z-index: 999;
+}
+
+#text {
+  background-color: rgba(0, 32, 0, 0.8);
+  border: 2px solid yellow;
+  color: yellow;
+  height: 3em;
+  width: 98%;
+}
+
+button {
+  background-color: white;
+  color: black;
+}
+
+#info-controls {
+  margin: 0.5em auto;
+}

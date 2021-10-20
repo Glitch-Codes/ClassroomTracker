@@ -1,0 +1,14 @@
+{
+  "name": "Classroom Tracker",
+  "description": "Scans QR codes using your webcam for tracking students.",
+  "version": "0.2",
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": { "128": "icon128.png" },
+  "permissions": [
+    "videoCapture"
+  ]
+}
