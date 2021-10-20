@@ -1,5 +1,8 @@
 var sound = new Audio("audio/success.mp3");
 var postTrigger = 0;
+var outMessage = ": signed out";
+var inMessage = "Welcome back, "
+var student = "";
 
 var playSound = function() {
   sound.play();
@@ -103,6 +106,16 @@ onload = function() {
     }
   }
 
+  function getMessage(s) {
+    if(s == student) {
+      student = "";
+      return inMessage + s.replace("+", " ");
+    } else {
+      student = s;
+      return s.replace("+", " ") + outMessage;
+    }
+  }
+
   function scanSnapshot() {
     if (localMediaStream) {
       maybeUpdateOffsets();
@@ -128,8 +141,11 @@ onload = function() {
   }
 
   var finish = function(result) {
-    var postUrl = result.split('?')[0]
-    var keyValue = result.split('?')[1]
+    var postUrl = result.split('?')[0];
+    var keyValue = result.split('?')[1];
+    var s = keyValue.split('=')[1];
+
+    sign.innerText = getMessage(s);
   
     var http = new XMLHttpRequest();
     http.open('POST', postUrl, true);

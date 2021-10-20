@@ -26,7 +26,8 @@ svg {
 }
 
 #scanlog {
-  color: rgb(4, 0, 255);
+  background-color: black;
+  color: rgb(255, 0, 0);
   font-size: 8pt;
   left: 0;
   position: absolute;
@@ -44,17 +45,24 @@ canvas {
   z-index: 998;
 }
 
+text {
+  background-color: white;
+  color: black;
+  font-size: 40px;
+}
+
+
 #info {
-  position: top;
+  position: relative;
   top: 40%;
   width: 98%;
   z-index: 999;
 }
 
 #text {
-  background-color: rgba(0, 32, 0, 0.8);
-  border: 2px solid yellow;
-  color: yellow;
+  background-color: black;
+  border: 2px solid black;
+  color: Red;
   height: 3em;
   width: 98%;
 }
