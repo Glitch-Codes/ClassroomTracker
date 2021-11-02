@@ -135,7 +135,7 @@ onload = function() {
     }
   }
 
-  function setTrigger() {
+  function restartScan() {
     start();
     scanSnapshot();
   }
@@ -145,17 +145,21 @@ onload = function() {
     var keyValue = result.split('?')[1];
     var s = keyValue.split('=')[1];
 
-    sign.innerText = getMessage(s);
-  
     var http = new XMLHttpRequest();
     http.open('POST', postUrl, true);
   
     //Send the proper header information along with the request
-    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     http.send(keyValue);
-    showElements(false);
-    playSound(false);
-    setTimeout(setTrigger, 1500);
+
+    http.onreadystatechange = function() { 
+      if (this.readyState == 4) {
+        sign.innerText = getMessage(s);
+        showElements(false);
+        playSound(false);
+        setTimeout(restartScan, 1500); 
+      } 
+    };
   }
 
   qrcode.callback = finish;
