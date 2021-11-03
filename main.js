@@ -154,20 +154,14 @@ onload = function() {
     http.send(keyValue);
 
     http.onreadystatechange = function() { 
-      if (this.readyState === 2) {
-        scanLog.innerText = "HEADERS_RECEIVED";
-      } 
-      if (this.readyState === 3) {
-        scanLog.innerText = "LOADING";
-      } 
-      if (this.readyState === 4 && this.status === 200) {
+      if (this.readyState === 4) {
         sign.innerText = getMessage(s);
         showElements(false);
         playSound(false);
         setTimeout(restartScan, 1500); 
       } 
-      if (this.status === 404) {
-        scanLog.innerText = "404 FORM NOT FOUND";
+      else if (this.status === 404) {
+        scanLog.innerText = "404 NOT FOUND";
         setTimeout(restartScan, 1500); 
       } 
     };
